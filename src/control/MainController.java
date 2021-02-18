@@ -41,7 +41,15 @@ public class MainController {
      */
     public String searchList(String name){
         String output = "Nicht gefunden.";
-        //TODO 01: Schreibe einen Suchalgorithmus
+        allPersons.toFirst();
+        while (allPersons.hasAccess()){
+            if(allPersons.getContent().getName().equalsIgnoreCase(name)){
+                output = "Name: " + allPersons.getContent().getName() + "  Geburtsdatum: " + allPersons.getContent().getBirthdate();
+                return output;
+            }
+            allPersons.next();
+        }
+        output = "Nichts gefunden";
         return output;
     }
 
@@ -50,7 +58,7 @@ public class MainController {
      * Gib an, ob deine Umsetzung stabil ist und ob sie in-place ist.
      */
     public void sortList(){
-        //TODO 02: Schreibe einen Sortieralgorithmus
+
     }
 
 
